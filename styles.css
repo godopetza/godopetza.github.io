@@ -35,18 +35,20 @@ header h1 {
 }
 
 .hero {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .hero article {
   display: inline-block;
-  text-align: justify;
+  vertical-align: top;
+
+  text-align: left;
   font-size: 1.2rem;
-  margin: 20px;
+  margin: 0 20px;
 }
 
 main {
-    padding: 10px;
+  padding: 10px;
 }
 
 .hero img {
