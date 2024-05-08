@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body,
 ul,
 li,
@@ -31,7 +35,6 @@ header h1 {
 
 .social-icons {
   text-align: center;
-
   white-space: nowrap;
 }
 
@@ -57,7 +60,7 @@ main {
   padding: 20px;
 }
 
-.hero article{
+.hero article {
   width: 55%;
   float: right;
 }
@@ -78,7 +81,7 @@ main {
 }
 
 nav {
-  margin: 0 0 20px;
+  margin-bottom: 20px;
 }
 
 nav ul {
@@ -90,6 +93,40 @@ nav ul {
 nav li {
   width: 25%;
   display: inline-block;
+}
+
+#skills {
+  margin: 0 5%;
+}
+
+.skill {
+  float: left;
+  width: 46%;
+  margin: 1%;
+  padding: 1%;
+}
+
+#skills::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+#skills h2:nth-child(1) {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+#skills img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background: white;
+  padding: 5px;
+}
+
+footer {
+  margin-top: 40px;
 }
 
 /* responsive stylles */
