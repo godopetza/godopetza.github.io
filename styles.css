@@ -2,6 +2,10 @@ html {
   scroll-behavior: smooth;
 }
 
+.section-offset{
+  scroll-margin-top: 100px;
+}
+
 body,
 ul,
 li,
