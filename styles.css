@@ -66,8 +66,9 @@ main {
 }
 
 .hero article {
-  width: 55%;
+  width: 45%;
   float: right;
+  margin-right: 15%;
 }
 
 .hero img {
@@ -157,6 +158,7 @@ footer {
 #projects > * {
   position: relative;
   display: flex;
+  text-decoration: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
