@@ -39,7 +39,6 @@ header h1 {
 }
 
 .social-icons {
-  text-align: center;
   white-space: nowrap;
 }
 
@@ -49,32 +48,25 @@ header h1 {
 }
 
 .hero {
-  margin-top: 150px;
+  display: flex;
+  margin: 150px 20% 0;
+  width: 60%;
 }
 
 .hero article {
   display: inline-block;
   vertical-align: top;
-
   text-align: left;
   font-size: 1.2rem;
-  margin: 0 20px;
+  margin-left: 20px;
 }
 
 main {
   padding: 20px;
 }
 
-.hero article {
-  width: 45%;
-  float: right;
-  margin-right: 15%;
-}
-
 .hero img {
   border-radius: 18px;
-  width: 30%;
-  float: right;
   max-height: 200px;
   max-width: 200px;
   margin-bottom: 20px;
@@ -193,6 +185,10 @@ footer {
 }
 /* responsive stylles */
 @media screen and (max-width: 960px) {
+  .hero {
+    margin: 150px 10% 0;
+    width: 80%;
+  }
 }
 
 /* small-res tabs view */
@@ -201,6 +197,11 @@ footer {
 
 /* mobile view */
 @media screen and (max-width: 480px) {
+  .hero {
+    margin: 150px 5% 0;
+    width: 95%;
+  }
+  
   .skill {
     float: left;
     width: 80%;
