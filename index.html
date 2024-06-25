@@ -4,133 +4,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Benard's Portfolio - HTML/CSS (Simple)</title>
+    <title>Benard Mseti</title>
     <link rel="stylesheet" href="./styles.css">
-    <script scr="./script.js"></script>
+    <script src="./script.js"></script>
 </head>
 
 <body>
-    <!-- Header -->
     <div id="header-wrapper">
-        <header>
-            <h1>Benard A. Mseti</h1>
-
-        </header>
-
-
-        <!-- Navigation -->
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-            </ul>
-        </nav>
+        <div class="container">
+            <header>
+                <h1>Benard A. Mseti</h1>
+                <p class="tagline">Innovative Software Solutions for East Africa</p>
+            </header>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#home">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </div>
-
 
     <main id="home">
+        <div class="container">
+            <section class="hero">
+                <img src="./assets/images/me.jpeg" alt="Benard Mseti">
+                <article>
+                    <h2>Hi, I'm Benard!</h2>
+                    <p>A passionate software engineer based in Tanzania, transforming ideas into elegant code. With
+                        expertise in mobile, web, and backend development, I bring digital visions to life.</p>
+                </article>
+            </section>
 
-        <!-- Hero Section -->
-        <section class="hero" id="contact">
-            <img src="./assets/images/me.jpeg" alt="Benard's Photo">
+            <section id="about" class="section-offset">
+                <h2>About Me</h2>
+                <p>With over 3 years of experience, I've honed my skills in creating robust, user-friendly
+                    applications available on Google Play Store and Apple's App Store.</p>
+            </section>
 
-            <article>
-                <h1>Hi, I'm Benard!</h1>
-
-                <p>A software engineer based in Tanzania, proficient
-                    in solving problems using <strong>&lt;code/&gt;</strong> <br>
-                    <br>
-                </p>
-
-
-            </article>
-
-        </section>
-
-        <!-- Contact -->
-
-        <ul class="social-icons">
-            <li><a href="https://github.com/godopetza"><img src="./assets/svg/Github_black.svg" alt="github"></a></li>
-            <li><a href="https://www.linkedin.com/in/benard-andrew-5b29069b/"><img src="./assets/svg/LinkedIN.svg"
-                        alt="linkedin"></a></li>
-            <li><a href="https://x.com/godopetza"><img src="./assets/svg/Twitter.svg" alt="twitter"></a></li>
-        </ul>
-
-
+            <ul class="social-icons">
+                <li><a href="https://github.com/godopetza"><img src="./assets/svg/Github_black.svg" alt="github"></a>
+                </li>
+                <li><a href="https://www.linkedin.com/in/benard-andrew-5b29069b/"><img src="./assets/svg/LinkedIN.svg"
+                            alt="linkedin"></a></li>
+                <li><a href="https://x.com/godopetza"><img src="./assets/svg/Twitter.svg" alt="twitter"></a></li>
+            </ul>
+        </div>
     </main>
 
-    <hr style="width: 90%; margin-bottom: 50px; border: 0.8px solid white;">
-
-    <!-- Skills -->
     <div id="skills" class="section-offset">
-        <h2>Skills</h2>
-        <!--  -->
-        <div class="skill">
-            <img src="./assets/svg/phone-variant-shape.svg" alt="">
-            <h2>Mobile & Web App Development</h2>
-            <p>I have built multiple production-level applications for various sectors available on Android's Google
-                Play Store and Apple's App Store utilizing frameworks such as Kotlin and Flutter!</p>
-
+        <div class="container">
+            <h2>Skills</h2>
+            <div class="skill">
+                <!-- <img src="./assets/images/android-and-ios-development.jpg" alt=""> -->
+                <h3>Full-Stack Development</h3>
+                <p>Proficient in creating end-to-end solutions, from responsive front-end interfaces to robust backend
+                    systems.</p>
+            </div>
+            <div class="skill">
+                <!-- <img src="./assets/svg/api-interface.png" alt=""> -->
+                <h3>Backend Development</h3>
+                <p>Expert in building secure, scalable backend architectures that power high-performance applications.
+                </p>
+            </div>
+            <div class="skill">
+                <!-- <img src="./assets/svg/entrepreneur.svg" alt=""> -->
+                <h3>Tech Entrepreneurship</h3>
+                <p>Founder of Godopetza Labs Co Ltd, driving innovation and digital transformation in East Africa.</p>
+            </div>
         </div>
-
-        <div class="skill">
-            <img src="./assets/svg/api-interface.png" alt="">
-            <h2>Backend Development</h2>
-            <p>I have built robust and secure backends for various startups and personal projects. Starting from
-                ideation to the final deployment phase and handling it's maintainance.</p>
-
-        </div>
-
     </div>
 
-    <hr style="width: 90%; margin-bottom: 50px; border: 0.8px solid white;">
-
-
-
-    <!-- Work Experience-->
-    <div id="work">
-
+    <div id="services" class="section-offset">
+        <div class="container">
+            <h2>Services</h2>
+            <ul class="services-list">
+                <li>Custom Software Development</li>
+                <li>Mobile App Creation</li>
+                <li>Web Application Design</li>
+                <li>IT Consultancy</li>
+            </ul>
+        </div>
     </div>
 
-    <!-- Projects -->
-    <h2 style=" text-align: left; margin-left: 20px; margin:0 0 -30px 5%;">Projects</h2>
-
-    <div id="projects">
-        <a href="https://flutterai.dev/hadithzetu/" class="one">
-            <div>
-                <h3>Hadithi Zetu</h3>
-                <img src="./assets/png/books.png" alt="">
+    <div id="projects" class="section-offset">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <a href="https://flutterai.dev/hadithzetu/" class="project one">
+                    <div>
+                        <h3>Hadithi Zetu</h3>
+                        <img src="./assets/png/books.png" alt="">
+                    </div>
+                </a>
+                <a href="https://flutterai.dev/charityflowwebapp/" class="project two">
+                    <div>
+                        <h3>Charity Flow</h3>
+                        <img src="./assets/png/charityy.png" alt="">
+                    </div>
+                </a>
+                <a href="https://flutterai.dev/ulizabiblia/" class="project three">
+                    <div>
+                        <h3>Uliza Biblia</h3>
+                        <img src="./assets/png/bible.png" alt="">
+                    </div>
+                </a>
+                <a href="https://flutteraiweb-production.up.railway.app/" class="project four">
+                    <div>
+                        <h3>Flutter AI</h3>
+                        <img src="./assets/png/ai.png" alt="">
+                    </div>
+                </a>
             </div>
-        </a>
-
-        <a href="https://flutterai.dev/charityflowwebapp/" class="two">
-            <div>
-                <h3>Charity Flow</h3>
-                <img src="./assets/png/charityy.png" alt="">
-            </div>
-        </a>
-
-        <a href="https://flutterai.dev/ulizabiblia/" class="three">
-            <div>
-                <h3>Uliza Biblia</h3>
-                <img src="./assets/png/bible.png" alt="">
-            </div>
-        </a>
-
-        <a href="https://flutteraiweb-production.up.railway.app/" class="four">
-            <div>
-                <h3>Flutter AI</h3>
-                <img src="./assets/png/ai.png" alt="">
-            </div>
-        </a>
+        </div>
     </div>
 
     <footer>
-        <p class="copyright">Made with ❤️ by Benard 🙂</p>
+        <div class="container">
+            <p class="copyright">Made with ❤️ by Benard Mseti | Godopetza Labs Co Ltd</p>
+        </div>
     </footer>
-
 </body>
 
 </html>
