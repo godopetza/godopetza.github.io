@@ -241,12 +241,4 @@ footer {
   .services-list li {
     flex-basis: 100%;
   }
-
-  /* nav ul {
-    flex-direction: column;
-  }
-
-  nav li {
-    margin: 10px 0;
-  } */
 }
