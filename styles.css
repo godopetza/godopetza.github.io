@@ -95,7 +95,7 @@ main {
   justify-content: center;
   flex-wrap: wrap;
   margin-bottom: 40px;
-  margin-top: 100px;
+  margin-top: 120px;
 }
 
 .hero img {
@@ -151,8 +151,8 @@ h2 {
 }
 
 .skill {
-  flex-basis: calc(33.333% - 40px);
-  margin: 20px;
+  flex-basis: calc(25%);
+  margin: 0px;
   padding: 20px;
   background: #444;
   border-radius: 10px;
@@ -240,5 +240,9 @@ footer {
   .skill,
   .services-list li {
     flex-basis: 100%;
+  }
+
+  .skill {
+    margin: 10px;
   }
 }
