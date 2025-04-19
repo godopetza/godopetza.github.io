@@ -3,14 +3,45 @@ document.addEventListener("DOMContentLoaded", function () {
   const cursor = document.querySelector(".cursor");
   const cursorFollower = document.querySelector(".cursor-follower");
 
-  document.addEventListener("mousemove", function (e) {
-    cursor.style.left = e.clientX + "px";
-    cursor.style.top = e.clientY + "px";
+  if (cursor && cursorFollower) {
+    document.addEventListener("mousemove", function (e) {
+      cursor.style.left = e.clientX + "px";
+      cursor.style.top = e.clientY + "px";
 
-    setTimeout(function () {
-      cursorFollower.style.left = e.clientX + "px";
-      cursorFollower.style.top = e.clientY + "px";
-    }, 100);
+      setTimeout(function () {
+        cursorFollower.style.left = e.clientX + "px";
+        cursorFollower.style.top = e.clientY + "px";
+      }, 100);
+    });
+  }
+
+  // Mobile navigation handling
+  const navToggle = document.getElementById("nav-toggle");
+  const navLinks = document.querySelectorAll(".nav-link");
+  const navMenu = document.querySelector("nav ul");
+
+  // Add staggered animation delay to nav items
+  navLinks.forEach((link, index) => {
+    link.parentElement.style.setProperty("--i", index);
+
+    // Close menu when clicking a link
+    link.addEventListener("click", function () {
+      if (navToggle) {
+        navToggle.checked = false;
+        navMenu.classList.remove("active");
+      }
+    });
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener("click", function (e) {
+    const isClickInsideNav = e.target.closest("nav");
+    const isToggleLabel = e.target.closest(".nav-toggle-label");
+
+    if (navToggle && navToggle.checked && !isClickInsideNav && !isToggleLabel) {
+      navToggle.checked = false;
+      navMenu.classList.remove("active");
+    }
   });
 
   // Sticky header
@@ -29,15 +60,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Active nav links
   const sections = document.querySelectorAll("section");
-  const navLinks = document.querySelectorAll(".nav-link");
 
   window.addEventListener("scroll", function () {
     let current = "";
 
     sections.forEach((section) => {
       const sectionTop = section.offsetTop;
-      const sectionHeight = section.clientHeight;
-
       if (window.scrollY >= sectionTop - 200) {
         current = section.getAttribute("id");
       }
@@ -57,9 +85,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   filterBtns.forEach((btn) => {
     btn.addEventListener("click", function () {
-      // Remove active class from all buttons
       filterBtns.forEach((btn) => btn.classList.remove("active"));
-      // Add active class to clicked button
       this.classList.add("active");
 
       const filterValue = this.getAttribute("data-filter");

@@ -133,7 +133,7 @@ header {
     position: fixed;
     width: 100%;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
     padding: 20px 0;
     transition: var(--transition);
 }
@@ -196,6 +196,7 @@ nav ul {
 .nav-toggle-label {
     display: none;
     cursor: pointer;
+    z-index: 1001;
 }
 
 .nav-toggle-label span {
@@ -205,6 +206,77 @@ nav ul {
     background-color: white;
     margin: 5px 0;
     transition: var(--transition);
+}
+
+/* Mobile Navigation */
+.nav-toggle {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+@media (max-width: 768px) {
+    .nav-toggle-label {
+        display: block;
+    }
+
+    nav ul {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--card-bg);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-20px);
+        transition: all 0.4s ease;
+        z-index: 999;
+    }
+
+    .nav-toggle:checked ~ ul {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+        height: 100vh;
+        padding: 70px 0;
+    }
+
+    nav ul li {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.4s ease;
+        transition-delay: calc(0.1s * var(--i));
+    }
+
+    .nav-toggle:checked ~ ul li {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .nav-link {
+        font-size: 1.5rem;
+        font-weight: 600;
+        padding: 10px 20px;
+    }
+
+    .nav-toggle:checked ~ .nav-toggle-label span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .nav-toggle:checked ~ .nav-toggle-label span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .nav-toggle:checked ~ .nav-toggle-label span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
 }
 
 /* Hero Section */
@@ -318,34 +390,6 @@ nav ul {
 
 .scroll-indicator i {
     animation: bounce 2s infinite;
-}
-
-.hero-social {
-    position: absolute;
-    right: 50px;
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.social-link {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 18px;
-    transition: var(--transition);
-}
-
-.social-link:hover {
-    background: var(--primary-color);
-    transform: translateY(-5px);
 }
 
 @keyframes bounce {
@@ -800,6 +844,16 @@ nav ul {
     color: rgba(255, 255, 255, 0.7);
 }
 
+.contact-link {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+.contact-link:hover {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
 .contact-form-container {
     flex: 1;
 }
@@ -866,6 +920,16 @@ footer {
     color: rgba(255, 255, 255, 0.7);
 }
 
+.footer-link {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+.footer-link:hover {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
 .footer-social {
     display: flex;
     gap: 15px;
@@ -918,136 +982,44 @@ footer {
     box-shadow: 0 8px 20px rgba(108, 99, 255, 0.4);
 }
 
-/* JavaScript Script for the website */
-/* Create a script.js file with the following content:
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Custom cursor
-    const cursor = document.querySelector('.cursor');
-    const cursorFollower = document.querySelector('.cursor-follower');
-    
-    document.addEventListener('mousemove', function(e) {
-        cursor.style.left = e.clientX + 'px';
-        cursor.style.top = e.clientY + 'px';
-        
-        setTimeout(function() {
-            cursorFollower.style.left = e.clientX + 'px';
-            cursorFollower.style.top = e.clientY + 'px';
-        }, 100);
-    });
-    
-    // Sticky header
-    const header = document.querySelector('header');
-    const scrollIndicator = document.querySelector('.scroll-indicator');
-    
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 100) {
-            header.classList.add('sticky');
-            if(scrollIndicator) scrollIndicator.style.opacity = '0';
-        } else {
-            header.classList.remove('sticky');
-            if(scrollIndicator) scrollIndicator.style.opacity = '0.7';
-        }
-    });
-    
-    // Active nav links
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.nav-link');
-    
-    window.addEventListener('scroll', function() {
-        let current = '';
-        
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            
-            if (window.scrollY >= (sectionTop - 200)) {
-                current = section.getAttribute('id');
-            }
-        });
-        
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href').substring(1) === current) {
-                link.classList.add('active');
-            }
-        });
-    });
-    
-    // Project filtering
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const projectCards = document.querySelectorAll('.project-card');
-    
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-            // Remove active class from all buttons
-            filterBtns.forEach(btn => btn.classList.remove('active'));
-            // Add active class to clicked button
-            this.classList.add('active');
-            
-            const filterValue = this.getAttribute('data-filter');
-            
-            projectCards.forEach(card => {
-                if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        });
-    });
-});
-*/
-
 /* Media Queries */
 @media (max-width: 1200px) {
-    .hero-social {
-        right: 20px;
-    }
 }
 
 @media (max-width: 992px) {
     html {
         font-size: 15px;
     }
-    
+
     .hero-content {
         flex-direction: column-reverse;
         text-align: center;
     }
-    
+
     .hero-text p {
         margin: 0 auto 30px;
     }
-    
+
     .hero-cta {
         justify-content: center;
     }
-    
-    .hero-social {
-        position: static;
-        flex-direction: row;
-        justify-content: center;
-        margin-top: 40px;
-        transform: none;
-    }
-    
+
     .about-content, .contact-content {
         flex-direction: column;
     }
-    
+
     .about-text, .contact-form-container {
         text-align: center;
     }
-    
+
     .about-info {
         justify-content: center;
     }
-    
+
     .info-item {
         text-align: center;
     }
-    
+
     .section-title {
         font-size: 2.2rem;
     }
@@ -1057,51 +1029,15 @@ document.addEventListener('DOMContentLoaded', function() {
     header {
         padding: 15px 0;
     }
-    
-    .nav-toggle-label {
-        display: block;
-    }
-    
-    nav ul {
-        position: fixed;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        height: 0;
-        background: var(--card-bg);
-        flex-direction: column;
-        align-items: center;
-        padding: 0;
-        overflow: hidden;
-        transition: height 0.3s ease;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    }
-    
-    .nav-toggle:checked ~ ul {
-        height: 300px;
-        padding: 20px 0;
-    }
-    
-    .nav-toggle-label span:nth-child(1) {
-        transform: translateY(7px) rotate(45deg);
-    }
-    
-    .nav-toggle-label span:nth-child(2) {
-        opacity: 0;
-    }
-    
-    .nav-toggle-label span:nth-child(3) {
-        transform: translateY(-7px) rotate(-45deg);
-    }
-    
+
     .skills-progress {
         flex-direction: column;
     }
-    
+
     .contact-info {
         grid-template-columns: 1fr;
     }
-    
+
     .footer-content {
         flex-direction: column;
         gap: 20px;
@@ -1112,15 +1048,15 @@ document.addEventListener('DOMContentLoaded', function() {
     html {
         font-size: 14px;
     }
-    
+
     .hero-text h1 {
         font-size: 2.8rem;
     }
-    
+
     .hero-cta {
         flex-direction: column;
     }
-    
+
     .projects-grid {
         grid-template-columns: 1fr;
     }
