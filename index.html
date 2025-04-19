@@ -4,135 +4,476 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Benard Mseti</title>
-    <link rel="stylesheet" href="./styles.css">
-    <script src="./script.js"></script>
+    <title>Benard Mseti | Software Engineer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <script src="script.js" defer></script>
 </head>
 
 <body>
-    <div id="header-wrapper">
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <header>
         <div class="container">
-            <header>
-                <h1>Benard A. Mseti</h1>
-                <p class="tagline">Building Innovative Software Solutions for East Africa</p>
-            </header>
-            
+            <div class="logo">
+                <h1>Benard<span>.</span>Mseti</h1>
+            </div>
+            <nav>
+                <input type="checkbox" id="nav-toggle" class="nav-toggle">
+                <label for="nav-toggle" class="nav-toggle-label">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+                <ul>
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#about">Contact</a></li>
-            </ul>
-        </nav>
-    </div>
+    </header>
 
-    <main id="home">
-        <div class="container">
-            <section class="hero">
-                <img src="./assets/images/me.jpeg" alt="Benard Mseti">
-                <article>
-                    <h2>Hi, I'm Benard!</h2>
-                    <p>A passionate software engineer based in Tanzania, transforming ideas into elegant code. With
-                        expertise in mobile, web, and backend development, I bring digital visions to life.</p>
-                </article>
-            </section>
+    <main>
+        <section id="home" class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <span class="subtitle">Software Engineer</span>
+                        <h1>Hi, I'm <span>Benard</span> Mseti</h1>
+                        <p>A passionate software engineer based in Tanzania, transforming ideas into elegant code. With
+                            expertise in mobile, web, and backend development, I bring digital visions to life.</p>
+                        <div class="hero-cta">
+                            <a href="#projects" class="btn-primary">View My Work</a>
+                            <a href="#contact" class="btn-secondary">Contact Me</a>
+                        </div>
+                        <div class="scroll-indicator">
+                            <span>Scroll Down</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <div class="image-container">
+                            <img src="./assets/images/me.jpeg" alt="Benard Mseti">
+                        </div>
+                        <div class="experience-badge">
+                            <div class="experience-content">
+                                <span>3+</span>
+                                <p>Years Experience</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-social">
+                <a href="https://github.com/godopetza" target="_blank" class="social-link">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/benard-andrew-5b29069b/" target="_blank" class="social-link">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://x.com/godopetza" target="_blank" class="social-link">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </div>
+        </section>
 
-            <section id="about" class="section-offset">
-                <h2>About Me</h2>
-                <p>With over 3 years of experience, I've honed my skills in creating robust, user-friendly
-                    applications available on Google Play Store and Apple's App Store.</p>
-            </section>
+        <section id="about" class="about-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Who Am I</span>
+                    <h2 class="section-title">About Me</h2>
+                </div>
+                <div class="about-content">
+                    <div class="about-image">
+                        <img src="./assets/images/me.jpeg" alt="Benard Mseti">
+                        <div class="about-shape"></div>
+                    </div>
+                    <div class="about-text">
+                        <h3>Software Engineer & Entrepreneur</h3>
+                        <p>With over 3 years of experience, I've honed my skills in creating robust, user-friendly
+                            applications available on Google Play Store and Apple's App Store. I am passionate about
+                            building innovative solutions that solve real problems for people across East Africa.</p>
+                        <p>As the founder of Godopetza Labs Co Ltd, I lead a team dedicated to digital transformation
+                            and software excellence.</p>
 
-            <ul class="social-icons">
-                <li><a href="https://github.com/godopetza"><img src="./assets/svg/Github_black.svg" alt="github"></a>
-                </li>
-                <li><a href="https://www.linkedin.com/in/benard-andrew-5b29069b/"><img src="./assets/svg/LinkedIN.svg"
-                            alt="linkedin"></a></li>
-                <li><a href="https://x.com/godopetza"><img src="./assets/svg/Twitter.svg" alt="twitter"></a></li>
-            </ul>
-        </div>
+                        <div class="about-info">
+                            <div class="info-item">
+                                <span class="info-title">Name:</span>
+                                <span class="info-value">Benard Andrew Mseti</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-title">Email:</span>
+                                <span class="info-value">andrewbenard7@gmail.com</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-title">From:</span>
+                                <span class="info-value">Tanzania, East Africa</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-title">Availability:</span>
+                                <span class="info-value">Open to Projects</span>
+                            </div>
+                        </div>
+
+                        <a href="#" class="btn-primary">Download CV</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="skills-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">My Expertise</span>
+                    <h2 class="section-title">Skills & Technologies</h2>
+                </div>
+                <div class="skills-content">
+                    <div class="skills-card">
+                        <div class="skills-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3>Full-Stack Development</h3>
+                        <p>Proficient in creating end-to-end solutions, from responsive front-end interfaces to robust
+                            backend systems.</p>
+                        <div class="tech-stack">
+                            <span>Web</span>
+                            <span>Databases</span>
+                            <span>Mobile</span>
+                            <span>Backend</span>
+                        </div>
+                    </div>
+                    <div class="skills-card">
+                        <div class="skills-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <h3>Backend Development</h3>
+                        <p>Expert in building secure, scalable backend architectures that power high-performance
+                            applications.</p>
+                        <div class="tech-stack">
+                            <span>Golang</span>
+                            <span>Firebase</span>
+                            <span>SQL</span>
+                        </div>
+                    </div>
+                    <div class="skills-card">
+                        <div class="skills-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h3>Tech Entrepreneurship</h3>
+                        <p>Founder of Godopetza Labs Co Ltd, driving innovation and digital transformation in East
+                            Africa.</p>
+                        <div class="tech-stack">
+                            <span>Leadership</span>
+                            <span>Strategy</span>
+                            <span>Innovation</span>
+                            <span>Project Management</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skills-progress">
+                    <div class="progress-column">
+                        <div class="progress-item">
+                            <div class="progress-info">
+                                <h4>Golang</h4>
+                                <span>92%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 92%;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-info">
+                                <h4>Flutter</h4>
+                                <span>90%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                        <!-- <div class="progress-item">
+                            <div class="progress-info">
+                                <h4>React</h4>
+                                <span>85%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 85%;"></div>
+                            </div>
+                        </div> -->
+                    </div>
+                    <div class="progress-column">
+                        <!-- <div class="progress-item">
+                            <div class="progress-info">
+                                <h4>Firebase</h4>
+                                <span>88%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 88%;"></div>
+                            </div>
+                        </div> -->
+                        <!-- <div class="progress-item">
+                            <div class="progress-info">
+                                <h4>Python</h4>
+                                <span>80%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 80%;"></div>
+                            </div>
+                        </div> -->
+                        <div class="progress-item">
+                            <div class="progress-info">
+                                <h4>UI/UX Design</h4>
+                                <span>75%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 75%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="services-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">What I Offer</span>
+                    <h2 class="section-title">My Services</h2>
+                </div>
+                <div class="services-content">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Custom Software Development</h3>
+                        <p>Tailored software solutions designed to meet specific business requirements, improve
+                            efficiency, and drive growth.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>Mobile App Creation</h3>
+                        <p>Intuitive, high-performance mobile applications for Android and iOS that deliver exceptional
+                            user experiences.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-laptop"></i>
+                        </div>
+                        <h3>Web Application Design</h3>
+                        <p>Responsive, modern web applications with clean interfaces and seamless functionality across
+                            all devices.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3>IT Consultancy</h3>
+                        <p>Strategic technology advice and expertise to help businesses leverage digital tools for
+                            maximum impact.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">My Portfolio</span>
+                    <h2 class="section-title">Recent Projects</h2>
+                </div>
+                <div class="projects-filter">
+                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                    <button class="filter-btn" data-filter="web">Web Apps</button>
+                    <button class="filter-btn" data-filter="mobile">Mobile Apps</button>
+                    <button class="filter-btn" data-filter="ai">AI Projects</button>
+                </div>
+                <div class="projects-grid">
+                    <div class="project-card" data-category="web mobile">
+                        <div class="project-img">
+                            <img src="./assets/png/sgrtiketi.png" alt="SGR SMS TIKETI">
+                            <div class="project-overlay">
+                                <a href="https://sgrtiketiwebapp.vercel.app/" class="project-link" target="_blank">
+                                    <i class="fas fa-link"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <span class="project-category">Web Application</span>
+                            <h3 class="project-title">SGR SMS TIKETI</h3>
+                            <p class="project-description">SMS-based ticketing system for Tanzania's Standard Gauge
+                                Railway.</p>
+                        </div>
+                    </div>
+                    <div class="project-card" data-category="mobile">
+                        <div class="project-img">
+                            <img src="./assets/png/books.png" alt="Hadithi Zetu">
+                            <div class="project-overlay">
+                                <a href="https://flutterai.dev/hadithzetu/" class="project-link" target="_blank">
+                                    <i class="fas fa-link"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <span class="project-category">Digital Storytelling</span>
+                            <h3 class="project-title">Hadithi Zetu</h3>
+                            <p class="project-description">A platform for sharing and preserving East African stories.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="project-card" data-category="web">
+                        <div class="project-img">
+                            <img src="./assets/png/charityy.png" alt="Charity Flow">
+                            <div class="project-overlay">
+                                <a href="https://flutterai.dev/charityflowwebapp/" class="project-link" target="_blank">
+                                    <i class="fas fa-link"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <span class="project-category">Web Platform</span>
+                            <h3 class="project-title">Charity Flow</h3>
+                            <p class="project-description">Connecting donors with charitable organizations.</p>
+                        </div>
+                    </div>
+                    <div class="project-card" data-category="ai">
+                        <div class="project-img">
+                            <img src="./assets/png/bible.png" alt="Uliza Biblia">
+                            <div class="project-overlay">
+                                <a href="https://flutterai.dev/ulizabiblia/" class="project-link" target="_blank">
+                                    <i class="fas fa-link"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <span class="project-category">AI Application</span>
+                            <h3 class="project-title">Uliza Biblia</h3>
+                            <p class="project-description">Interactive Bible exploration tool powered by AI.</p>
+                        </div>
+                    </div>
+                    <div class="project-card" data-category="ai">
+                        <div class="project-img">
+                            <img src="./assets/png/ai.png" alt="Flutter AI">
+                            <div class="project-overlay">
+                                <a href="https://flutterai.dev/flutter_aiweb/" class="project-link" target="_blank">
+                                    <i class="fas fa-link"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <span class="project-category">Developer Tool</span>
+                            <h3 class="project-title">Flutter AI</h3>
+                            <p class="project-description">AI-powered development assistant for Flutter projects.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Get In Touch</span>
+                    <h2 class="section-title">Contact Me</h2>
+                </div>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Address</h3>
+                                <p>Dar es Salaam, Tanzania</p>
+                            </div>
+                        </div>
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Email</h3>
+                                <p>andrewbenard7@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Phone</h3>
+                                <p>+255 749 409 123</p>
+                            </div>
+                        </div>
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Website</h3>
+                                <p>flutterai.dev/godopetzalabs</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form-container">
+                        <form class="contact-form">
+                            <div class="form-group">
+                                <input type="text" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" placeholder="Your Email" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" placeholder="Subject">
+                            </div>
+                            <div class="form-group">
+                                <textarea placeholder="Your Message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
-
-    <div id="skills" class="section-offset">
-        <h2>Skills</h2>
-        <div class="container">
-            <div class="skill">
-                <!-- <img src="./assets/images/android-and-ios-development.jpg" alt=""> -->
-                <h3>Full-Stack Development</h3>
-                <p>Proficient in creating end-to-end solutions, from responsive front-end interfaces to robust backend
-                    systems.</p>
-            </div>
-            <div class="skill">
-                <!-- <img src="./assets/svg/api-interface.png" alt=""> -->
-                <h3>Backend Development</h3>
-                <p>Expert in building secure, scalable backend architectures that power high-performance applications.
-                </p>
-            </div>
-            <div class="skill">
-                <!-- <img src="./assets/svg/entrepreneur.svg" alt=""> -->
-                <h3>Tech Entrepreneurship</h3>
-                <p>Founder of Godopetza Labs Co Ltd, driving innovation and digital transformation in East Africa.</p>
-            </div>
-        </div>
-    </div>
-
-    <div id="services" class="section-offset">
-        <div class="container">
-            <h2>Services</h2>
-            <ul class="services-list">
-                <li>Custom Software Development</li>
-                <li>Mobile App Creation</li>
-                <li>Web Application Design</li>
-                <li>IT Consultancy</li>
-            </ul>
-        </div>
-    </div>
-
-    <div id="projects" class="section-offset">
-        <div class="container">
-            <h2>Projects</h2>
-            <div class="projects-grid">
-                <a href="https://sgrtiketiwebapp.vercel.app/" class="project one">
-                    <div>
-                        <h3>SGR SMS TIKETI</h3>
-                        <img src="./assets/png/sgrtiketi.png" alt="">
-                    </div>
-                </a><a href="https://flutterai.dev/hadithzetu/" class="project two">
-                    <div>
-                        <h3>Hadithi Zetu</h3>
-                        <img src="./assets/png/books.png" alt="">
-                    </div>
-                </a>
-                <a href="https://flutterai.dev/charityflowwebapp/" class="project three">
-                    <div>
-                        <h3>Charity Flow</h3>
-                        <img src="./assets/png/charityy.png" alt="">
-                    </div>
-                </a>
-                <a href="https://flutterai.dev/ulizabiblia/" class="project four">
-                    <div>
-                        <h3>Uliza Biblia</h3>
-                        <img src="./assets/png/bible.png" alt="">
-                    </div>
-                </a>
-                <a href="https://flutterai.dev/flutter_aiweb/" class="project five">
-                    <div>
-                        <h3>Flutter AI</h3>
-                        <img src="./assets/png/ai.png" alt="">
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div>
 
     <footer>
         <div class="container">
-            <p class="copyright">Made with ❤️ by Benard Mseti | Godopetza Labs Co Ltd</p>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>Benard<span>.</span>Mseti</h2>
+                    <p>Building Innovative Software Solutions for East Africa</p>
+                </div>
+                <div class="footer-social">
+                    <a href="https://github.com/godopetza" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/benard-andrew-5b29069b/" target="_blank">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://x.com/godopetza" target="_blank">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="copyright">Made with ❤️ by Benard Mseti | Godopetza Labs Co Ltd</p>
+            </div>
         </div>
+        <a href="#home" class="scroll-top">
+            <i class="fas fa-arrow-up"></i>
+        </a>
     </footer>
 </body>
 
