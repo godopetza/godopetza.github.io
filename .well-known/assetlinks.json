@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "dev.flutterai.hadithizetuapp",
+      "sha256_cert_fingerprints": [
+        "49:B5:0B:6E:3D:F1:8E:6A:2D:45:40:03:D8:88:42:F4:64:11:EB:33:27:AB:72:0E:05:EE:0E:AE:62:3E:50:E2"
+      ]
+    }
+  }
+]
