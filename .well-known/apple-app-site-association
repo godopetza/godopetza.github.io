@@ -1,0 +1,15 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "VMS3925SA9.dev.flutterai.hadithizetuapp",
+        "paths": [
+          "/hadithzetu",
+          "/hadithzetu/",
+          "/hadithzetu/*"
+        ]
+      }
+    ]
+  }
+}
