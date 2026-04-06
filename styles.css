@@ -454,37 +454,14 @@ nav ul {
 }
 
 .about-content {
-  display: flex;
-  align-items: center;
-  gap: 50px;
-}
-
-.about-image {
-  flex: 1;
-  position: relative;
-}
-
-.about-image img {
-  width: 100%;
-  max-width: 400px;
-  border-radius: 20px;
-  position: relative;
-  z-index: 2;
-}
-
-.about-shape {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 20px;
-  left: 20px;
-  background: var(--gradient);
-  border-radius: 20px;
-  z-index: 1;
+  max-width: 680px;
+  margin: 0 auto;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .about-text {
-  flex: 1;
+  text-align: left;
 }
 
 .about-text h3 {
@@ -1017,12 +994,14 @@ footer {
     justify-content: center;
   }
 
-  .about-content,
   .contact-content {
     flex-direction: column;
   }
 
-  .about-text,
+  .about-text {
+    text-align: center;
+  }
+
   .contact-form-container {
     text-align: center;
   }
