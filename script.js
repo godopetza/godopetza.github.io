@@ -1,102 +1,91 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Custom cursor
-  const cursor = document.querySelector(".cursor");
-  const cursorFollower = document.querySelector(".cursor-follower");
+  // Year in footer
+  const yearEl = document.getElementById("year");
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  if (cursor && cursorFollower) {
-    document.addEventListener("mousemove", function (e) {
-      cursor.style.left = e.clientX + "px";
-      cursor.style.top = e.clientY + "px";
-
-      setTimeout(function () {
-        cursorFollower.style.left = e.clientX + "px";
-        cursorFollower.style.top = e.clientY + "px";
-      }, 100);
-    });
-  }
-
-  // Mobile navigation handling
+  // Mobile navigation
   const navToggle = document.getElementById("nav-toggle");
   const navLinks = document.querySelectorAll(".nav-link");
   const navMenu = document.querySelector("nav ul");
 
-  // Add staggered animation delay to nav items
-  navLinks.forEach((link, index) => {
-    link.parentElement.style.setProperty("--i", index);
-
-    // Close menu when clicking a link
+  navLinks.forEach((link) => {
     link.addEventListener("click", function () {
-      if (navToggle) {
-        navToggle.checked = false;
-        navMenu.classList.remove("active");
-      }
+      if (navToggle) navToggle.checked = false;
     });
   });
 
-  // Close menu when clicking outside
   document.addEventListener("click", function (e) {
-    const isClickInsideNav = e.target.closest("nav");
-    const isToggleLabel = e.target.closest(".nav-toggle-label");
-
-    if (navToggle && navToggle.checked && !isClickInsideNav && !isToggleLabel) {
+    const insideNav = e.target.closest("nav");
+    if (navToggle && navToggle.checked && !insideNav) {
       navToggle.checked = false;
-      navMenu.classList.remove("active");
     }
   });
 
-  // Sticky header
+  // Sticky header + back-to-top
   const header = document.querySelector("header");
-  const scrollIndicator = document.querySelector(".scroll-indicator");
+  const scrollTop = document.querySelector(".scroll-top");
 
-  window.addEventListener("scroll", function () {
-    if (window.scrollY > 100) {
-      header.classList.add("sticky");
-      if (scrollIndicator) scrollIndicator.style.opacity = "0";
-    } else {
-      header.classList.remove("sticky");
-      if (scrollIndicator) scrollIndicator.style.opacity = "0.7";
-    }
-  });
+  function onScroll() {
+    const y = window.scrollY;
+    header.classList.toggle("sticky", y > 60);
+    if (scrollTop) scrollTop.classList.toggle("show", y > 600);
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
 
-  // Active nav links
-  const sections = document.querySelectorAll("section");
+  // Active nav link based on section in view
+  const sections = document.querySelectorAll("main section[id]");
+  const navObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute("id");
+          navLinks.forEach((link) =>
+            link.classList.toggle(
+              "active",
+              link.getAttribute("href") === "#" + id
+            )
+          );
+        }
+      });
+    },
+    { rootMargin: "-45% 0px -50% 0px" }
+  );
+  sections.forEach((s) => navObserver.observe(s));
 
-  window.addEventListener("scroll", function () {
-    let current = "";
+  // Scroll reveal
+  const revealTargets = document.querySelectorAll(
+    ".section-header, .feature-card, .project-card, .about-text, .about-facts, .stack-group, .service-card, .contact-info, .contact-form, .hero-text, .hero-image"
+  );
+  revealTargets.forEach((el) => el.classList.add("reveal"));
 
-    sections.forEach((section) => {
-      const sectionTop = section.offsetTop;
-      if (window.scrollY >= sectionTop - 200) {
-        current = section.getAttribute("id");
-      }
-    });
-
-    navLinks.forEach((link) => {
-      link.classList.remove("active");
-      if (link.getAttribute("href").substring(1) === current) {
-        link.classList.add("active");
-      }
-    });
-  });
+  const revealObserver = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in");
+          obs.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12 }
+  );
+  revealTargets.forEach((el) => revealObserver.observe(el));
 
   // Project filtering
   const filterBtns = document.querySelectorAll(".filter-btn");
-  const projectCards = document.querySelectorAll(".project-card");
+  const projectCards = document.querySelectorAll(".projects-grid .project-card");
 
   filterBtns.forEach((btn) => {
     btn.addEventListener("click", function () {
-      filterBtns.forEach((btn) => btn.classList.remove("active"));
+      filterBtns.forEach((b) => b.classList.remove("active"));
       this.classList.add("active");
-
-      const filterValue = this.getAttribute("data-filter");
+      const filter = this.getAttribute("data-filter");
 
       projectCards.forEach((card) => {
         const categories = card.getAttribute("data-category").split(" ");
-        if (filterValue === "all" || categories.includes(filterValue)) {
-          card.style.display = "block";
-        } else {
-          card.style.display = "none";
-        }
+        const show = filter === "all" || categories.includes(filter);
+        card.style.display = show ? "flex" : "none";
       });
     });
   });
