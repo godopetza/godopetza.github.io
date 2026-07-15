@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Manrope:wght@400;500;600;700&display=swap"
         rel="stylesheet">
     <script src="script.js" defer></script>
 </head>
@@ -22,13 +22,13 @@
         <div class="container">
             <a href="#home" class="logo">Benard<span>.</span>Mseti</a>
             <nav>
-                <input type="checkbox" id="nav-toggle" class="nav-toggle">
-                <label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle navigation">
+                <button type="button" id="nav-toggle" class="nav-toggle" aria-label="Open navigation"
+                    aria-expanded="false" aria-controls="primary-navigation">
                     <span></span>
                     <span></span>
                     <span></span>
-                </label>
-                <ul>
+                </button>
+                <ul id="primary-navigation">
                     <li><a href="#home" class="nav-link active">Home</a></li>
                     <li><a href="#work" class="nav-link">Work</a></li>
                     <li><a href="#about" class="nav-link">About</a></li>
@@ -82,215 +82,168 @@
                     <h2 class="section-title">Products I've shipped</h2>
                 </div>
 
-                <!-- Featured: Karata -->
-                <article class="feature-card">
-                    <a class="feature-media" href="https://karata.uk" target="_blank" rel="noopener"
-                        aria-label="Visit Karata">
-                        <img src="./assets/png/karata-icon.png" alt="Karata — Last Card">
-                    </a>
-                    <div class="feature-body">
-                        <span class="feature-flag mono">New — just launched</span>
-                        <span class="project-cat mono">Mobile · Web · Multiplayer game</span>
-                        <h3 class="feature-title">Karata <span>— Last Card</span></h3>
-                        <p class="feature-desc">A fast, social shedding card game (Kadi Moja) built in Flutter.
-                            Play clever AI solo or invite friends with a room code across iOS, Android, and web —
-                            complete with real-time rooms, special-card stacks, and the all-important "Kadi Moja!"
-                            call.</p>
-                        <div class="project-links mono">
-                            <a href="https://karata.uk/play/" target="_blank" rel="noopener"><i
-                                    class="fas fa-play"></i> Play on web</a>
-                            <a href="https://karata.uk" target="_blank" rel="noopener"><i
-                                    class="fas fa-globe"></i> karata.uk</a>
-                        </div>
-                    </div>
-                </article>
-
                 <div class="projects-filter mono">
-                    <button class="filter-btn active" data-filter="all">All</button>
-                    <button class="filter-btn" data-filter="mobile">Mobile</button>
-                    <button class="filter-btn" data-filter="web">Web</button>
-                    <button class="filter-btn" data-filter="saas">SaaS</button>
-                    <button class="filter-btn" data-filter="ai">AI</button>
+                    <button class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
+                    <button class="filter-btn" data-filter="mobile" aria-pressed="false">Mobile</button>
+                    <button class="filter-btn" data-filter="web" aria-pressed="false">Web</button>
+                    <button class="filter-btn" data-filter="saas" aria-pressed="false">SaaS</button>
+                    <button class="filter-btn" data-filter="ai" aria-pressed="false">AI</button>
                 </div>
 
-                <div class="projects-grid">
-                    <article class="project-card" data-category="saas mobile web">
-                        <div class="project-media project-media--pad">
-                            <img src="./assets/png/hadithizetu-icon.png" alt="Hadithi Zetu">
-                        </div>
-                        <div class="project-body">
-                            <div class="project-top">
-                                <span class="project-cat mono">SaaS · Mobile · Web</span>
-                                <span class="project-idx mono">P-01</span>
-                            </div>
-                            <h3 class="project-title">Hadithi Zetu</h3>
-                            <p class="project-desc">A marketplace for African stories — read, sell, and buy premium
-                                written &amp; audio content, with mobile-money payments (M-Pesa, Airtel), creator
-                                subscriptions, tips, and WhatsApp delivery.</p>
-                            <div class="project-links mono">
-                                <a href="https://play.google.com/store/apps/details?id=dev.flutterai.hadithizetuapp"
-                                    target="_blank" rel="noopener"><i class="fab fa-android"></i> Android</a>
-                                <a href="https://apps.apple.com/tz/app/hadithizetu/id6760423803" target="_blank"
-                                    rel="noopener"><i class="fab fa-apple"></i> iOS</a>
-                                <a href="https://hadithizetu.com" target="_blank" rel="noopener"><i
-                                        class="fas fa-globe"></i> Web</a>
+                <div class="projects-grid bento-grid">
+                    <article class="project-card bento bento--xl" data-category="saas mobile web">
+                        <img class="bento__img" src="./assets/png/karata-icon.png" alt="Karata — Last Card"
+                            loading="lazy" decoding="async">
+                        <span class="bento__flag mono">New</span>
+                        <div class="bento__scrim"></div>
+                        <div class="bento__content">
+                            <span class="bento__cat mono">Mobile · Web · Multiplayer game</span>
+                            <h3 class="bento__title">Karata — Last Card</h3>
+                            <p class="bento__desc">A fast, social shedding card game (Kadi Moja) built in Flutter —
+                                play clever AI or invite friends with a room code across iOS, Android, and web.</p>
+                            <div class="bento__links mono">
+                                <a href="https://karata.uk/play/" target="_blank" rel="noopener"><i
+                                        class="fas fa-play"></i> Play on web</a>
+                                <a href="https://karata.uk" target="_blank" rel="noopener"><i class="fas fa-globe"></i>
+                                    karata.uk</a>
                             </div>
                         </div>
                     </article>
 
-                    <article class="project-card" data-category="web mobile saas">
-                        <div class="project-media project-media--whatsapp">
-                            <i class="fab fa-whatsapp"></i>
-                        </div>
-                        <div class="project-body">
-                            <div class="project-top">
-                                <span class="project-cat mono">SaaS · Mobile · Web</span>
-                                <span class="project-idx mono">P-02</span>
+                    <article class="project-card bento bento--tall" data-category="saas mobile web">
+                        <img class="bento__img" src="./assets/png/hadithizetu-icon.png" alt="Hadithi Zetu"
+                            loading="lazy" decoding="async">
+                        <div class="bento__scrim"></div>
+                        <div class="bento__content">
+                            <span class="bento__cat mono">SaaS · Mobile · Web</span>
+                            <h3 class="bento__title">Hadithi Zetu</h3>
+                            <p class="bento__desc">A marketplace for African stories with mobile-money payments,
+                                creator subscriptions, and WhatsApp delivery.</p>
+                            <div class="bento__links mono">
+                                <a href="https://play.google.com/store/apps/details?id=dev.flutterai.hadithizetuapp"
+                                    target="_blank" rel="noopener" title="Android" aria-label="Hadithi Zetu on Android"><i
+                                        class="fab fa-android"></i></a>
+                                <a href="https://apps.apple.com/tz/app/hadithizetu/id6760423803" target="_blank"
+                                    rel="noopener" title="iOS" aria-label="Hadithi Zetu on iOS"><i class="fab fa-apple"></i></a>
+                                <a href="https://hadithizetu.com" target="_blank" rel="noopener" title="Web"
+                                    aria-label="Hadithi Zetu web"><i class="fas fa-globe"></i></a>
                             </div>
-                            <h3 class="project-title">Shereko</h3>
-                            <p class="project-desc">Wedding invitation &amp; guest management. Send personalized
-                                invites over WhatsApp, track RSVPs, QR check-in at the door, and collect Michango
-                                contributions via M-Pesa/Airtel.</p>
-                            <div class="project-links mono">
+                        </div>
+                    </article>
+
+                    <article class="project-card bento bento--wide bento--wa" data-category="web mobile saas">
+                        <i class="fab fa-whatsapp bento__glyph"></i>
+                        <div class="bento__scrim"></div>
+                        <div class="bento__content">
+                            <span class="bento__cat mono">SaaS · Mobile · Web</span>
+                            <h3 class="bento__title">Shereko</h3>
+                            <p class="bento__desc">Wedding invitations &amp; guest management over WhatsApp — RSVPs, QR
+                                check-in, and Michango via M-Pesa/Airtel.</p>
+                            <div class="bento__links mono">
                                 <a href="https://shereko.com" target="_blank" rel="noopener"><i
                                         class="fas fa-globe"></i> shereko.com</a>
                             </div>
                         </div>
                     </article>
 
-                    <article class="project-card" data-category="mobile">
-                        <div class="project-media">
-                            <img src="./assets/png/inflationdata.png" alt="InflationData">
-                        </div>
-                        <div class="project-body">
-                            <div class="project-top">
-                                <span class="project-cat mono">Mobile app</span>
-                                <span class="project-idx mono">P-03</span>
-                            </div>
-                            <h3 class="project-title">InflationData</h3>
-                            <p class="project-desc">See how inflation quietly eats your money over time. Compare
-                                currencies, analyze purchasing power, and get AI-powered financial insights.</p>
-                            <div class="project-links mono">
+                    <article class="project-card bento bento--wide" data-category="mobile">
+                        <img class="bento__img" src="./assets/png/inflationdata.png" alt="InflationData" loading="lazy"
+                            decoding="async">
+                        <div class="bento__scrim"></div>
+                        <div class="bento__content">
+                            <span class="bento__cat mono">Mobile app</span>
+                            <h3 class="bento__title">InflationData</h3>
+                            <div class="bento__links mono">
                                 <a href="https://play.google.com/store/apps/details?id=dev.flutterai.inflationdata&hl=en_GB"
-                                    target="_blank" rel="noopener"><i class="fab fa-android"></i> Android</a>
+                                    target="_blank" rel="noopener" title="Android" aria-label="InflationData on Android"><i
+                                        class="fab fa-android"></i></a>
                                 <a href="https://apps.apple.com/tz/app/inflatationdata/id6746092368" target="_blank"
-                                    rel="noopener"><i class="fab fa-apple"></i> iOS</a>
+                                    rel="noopener" title="iOS" aria-label="InflationData on iOS"><i class="fab fa-apple"></i></a>
                             </div>
                         </div>
                     </article>
 
-                    <article class="project-card" data-category="web mobile">
-                        <div class="project-media">
-                            <img src="./assets/png/flutter-mini-app-bridge_white.png" alt="Flutter Mini App Bridge">
-                            <span class="media-badge mono">Tech demo</span>
-                        </div>
-                        <div class="project-body">
-                            <div class="project-top">
-                                <span class="project-cat mono">Web ↔ Mobile bridge</span>
-                                <span class="project-idx mono">P-04</span>
-                            </div>
-                            <h3 class="project-title">Flutter–JS Bridge</h3>
-                            <p class="project-desc">A production-ready mini-app ecosystem demonstrating the JavaScript
-                                bridge patterns behind super-apps (WeChat/Alipay style) — secure payment flow and full
-                                bridge communication.</p>
-                            <div class="project-links mono">
+                    <article class="project-card bento bento--md" data-category="web mobile">
+                        <img class="bento__img" src="./assets/png/flutter-mini-app-bridge_white.png"
+                            alt="Flutter Mini App Bridge" loading="lazy" decoding="async">
+                        <span class="bento__flag mono">Tech demo</span>
+                        <div class="bento__scrim"></div>
+                        <div class="bento__content">
+                            <span class="bento__cat mono">Web ↔ Mobile bridge</span>
+                            <h3 class="bento__title">Flutter–JS Bridge</h3>
+                            <div class="bento__links mono">
                                 <a href="https://godopetza.github.io/flutter-mini-app-bridge-test/" target="_blank"
-                                    rel="noopener"><i class="fas fa-globe"></i> Live demo</a>
+                                    rel="noopener" title="Live demo" aria-label="Live demo"><i class="fas fa-globe"></i></a>
                                 <a href="https://github.com/godopetza/flutter-mini-app-bridge-test" target="_blank"
-                                    rel="noopener"><i class="fab fa-github"></i> Source</a>
+                                    rel="noopener" title="Source" aria-label="Source on GitHub"><i class="fab fa-github"></i></a>
                             </div>
                         </div>
                     </article>
 
-                    <article class="project-card" data-category="saas">
-                        <div class="project-media">
-                            <img src="./assets/png/tournestcrm.png" alt="TourNeST CRM">
-                        </div>
-                        <div class="project-body">
-                            <div class="project-top">
-                                <span class="project-cat mono">SaaS platform</span>
-                                <span class="project-idx mono">P-05</span>
-                            </div>
-                            <h3 class="project-title">TourNeST CRM</h3>
-                            <p class="project-desc">A CRM built for tour operators and travel agencies to manage
-                                bookings, customers, and day-to-day operations in one place.</p>
-                            <div class="project-links mono">
+                    <article class="project-card bento bento--md" data-category="saas">
+                        <img class="bento__img" src="./assets/png/tournestcrm.png" alt="TourNeST CRM" loading="lazy"
+                            decoding="async">
+                        <div class="bento__scrim"></div>
+                        <div class="bento__content">
+                            <span class="bento__cat mono">SaaS platform</span>
+                            <h3 class="bento__title">TourNeST CRM</h3>
+                            <div class="bento__links mono">
                                 <a href="https://tournestcrm.com" target="_blank" rel="noopener"><i
                                         class="fas fa-globe"></i> tournestcrm.com</a>
                             </div>
                         </div>
                     </article>
 
-                    <article class="project-card" data-category="web mobile">
-                        <div class="project-media">
-                            <img src="./assets/png/sgrtiketi.png" alt="SGR SMS Tiketi">
-                        </div>
-                        <div class="project-body">
-                            <div class="project-top">
-                                <span class="project-cat mono">Web app</span>
-                                <span class="project-idx mono">P-06</span>
-                            </div>
-                            <h3 class="project-title">SGR SMS Tiketi</h3>
-                            <p class="project-desc">An SMS-based ticketing system for Tanzania's Standard Gauge
-                                Railway — book a seat from any phone, no app required.</p>
-                            <div class="project-links mono">
+                    <article class="project-card bento bento--md" data-category="web mobile">
+                        <img class="bento__img" src="./assets/png/sgrtiketi.png" alt="SGR SMS Tiketi" loading="lazy"
+                            decoding="async">
+                        <div class="bento__scrim"></div>
+                        <div class="bento__content">
+                            <span class="bento__cat mono">Web app</span>
+                            <h3 class="bento__title">SGR SMS Tiketi</h3>
+                            <div class="bento__links mono">
                                 <a href="https://sgrtiketiwebapp.vercel.app/" target="_blank" rel="noopener"><i
                                         class="fas fa-globe"></i> Live</a>
                             </div>
                         </div>
                     </article>
 
-                    <article class="project-card" data-category="web">
-                        <div class="project-media">
-                            <img src="./assets/png/charityy.png" alt="Charity Flow">
-                        </div>
-                        <div class="project-body">
-                            <div class="project-top">
-                                <span class="project-cat mono">Web platform</span>
-                                <span class="project-idx mono">P-07</span>
-                            </div>
-                            <h3 class="project-title">Charity Flow</h3>
-                            <p class="project-desc">A platform connecting donors with charitable organizations and
-                                making giving simple and transparent.</p>
-                            <div class="project-links mono">
+                    <article class="project-card bento bento--md" data-category="web">
+                        <img class="bento__img" src="./assets/png/charityy.png" alt="Charity Flow" loading="lazy"
+                            decoding="async">
+                        <div class="bento__scrim"></div>
+                        <div class="bento__content">
+                            <span class="bento__cat mono">Web platform</span>
+                            <h3 class="bento__title">Charity Flow</h3>
+                            <div class="bento__links mono">
                                 <a href="https://flutterai.dev/charityflowwebapp/" target="_blank" rel="noopener"><i
                                         class="fas fa-globe"></i> Live</a>
                             </div>
                         </div>
                     </article>
 
-                    <article class="project-card" data-category="ai">
-                        <div class="project-media">
-                            <img src="./assets/png/bible.png" alt="Uliza Biblia">
-                        </div>
-                        <div class="project-body">
-                            <div class="project-top">
-                                <span class="project-cat mono">AI application</span>
-                                <span class="project-idx mono">P-08</span>
-                            </div>
-                            <h3 class="project-title">Uliza Biblia</h3>
-                            <p class="project-desc">An interactive, AI-powered way to explore and ask questions of the
-                                Bible in Swahili and English.</p>
-                            <div class="project-links mono">
+                    <article class="project-card bento bento--md" data-category="ai">
+                        <img class="bento__img" src="./assets/png/bible.png" alt="Uliza Biblia" loading="lazy"
+                            decoding="async">
+                        <div class="bento__scrim"></div>
+                        <div class="bento__content">
+                            <span class="bento__cat mono">AI application</span>
+                            <h3 class="bento__title">Uliza Biblia</h3>
+                            <div class="bento__links mono">
                                 <a href="https://flutterai.dev/ulizabiblia/" target="_blank" rel="noopener"><i
                                         class="fas fa-globe"></i> Live</a>
                             </div>
                         </div>
                     </article>
 
-                    <article class="project-card" data-category="ai">
-                        <div class="project-media">
-                            <img src="./assets/png/ai.png" alt="Flutter AI">
-                        </div>
-                        <div class="project-body">
-                            <div class="project-top">
-                                <span class="project-cat mono">Developer tool</span>
-                                <span class="project-idx mono">P-09</span>
-                            </div>
-                            <h3 class="project-title">Flutter AI</h3>
-                            <p class="project-desc">An AI-powered assistant that speeds up building and shipping
-                                Flutter projects.</p>
-                            <div class="project-links mono">
+                    <article class="project-card bento bento--md" data-category="ai">
+                        <img class="bento__img" src="./assets/png/ai.png" alt="Flutter AI" loading="lazy"
+                            decoding="async">
+                        <div class="bento__scrim"></div>
+                        <div class="bento__content">
+                            <span class="bento__cat mono">Developer tool</span>
+                            <h3 class="bento__title">Flutter AI</h3>
+                            <div class="bento__links mono">
                                 <a href="https://flutterai.dev/flutter_aiweb/" target="_blank" rel="noopener"><i
                                         class="fas fa-globe"></i> Live</a>
                             </div>

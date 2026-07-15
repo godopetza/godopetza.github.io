@@ -8,16 +8,34 @@ document.addEventListener("DOMContentLoaded", function () {
   const navLinks = document.querySelectorAll(".nav-link");
   const navMenu = document.querySelector("nav ul");
 
+  function setNavOpen(open) {
+    if (!navToggle || !navMenu) return;
+    navToggle.setAttribute("aria-expanded", String(open));
+    navToggle.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
+    navMenu.classList.toggle("open", open);
+  }
+
+  navToggle?.addEventListener("click", function () {
+    setNavOpen(this.getAttribute("aria-expanded") !== "true");
+  });
+
   navLinks.forEach((link) => {
     link.addEventListener("click", function () {
-      if (navToggle) navToggle.checked = false;
+      setNavOpen(false);
     });
   });
 
   document.addEventListener("click", function (e) {
     const insideNav = e.target.closest("nav");
-    if (navToggle && navToggle.checked && !insideNav) {
-      navToggle.checked = false;
+    if (navToggle?.getAttribute("aria-expanded") === "true" && !insideNav) {
+      setNavOpen(false);
+    }
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && navToggle?.getAttribute("aria-expanded") === "true") {
+      setNavOpen(false);
+      navToggle.focus();
     }
   });
 
@@ -78,8 +96,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   filterBtns.forEach((btn) => {
     btn.addEventListener("click", function () {
-      filterBtns.forEach((b) => b.classList.remove("active"));
+      filterBtns.forEach((b) => {
+        b.classList.remove("active");
+        b.setAttribute("aria-pressed", "false");
+      });
       this.classList.add("active");
+      this.setAttribute("aria-pressed", "true");
       const filter = this.getAttribute("data-filter");
 
       projectCards.forEach((card) => {
