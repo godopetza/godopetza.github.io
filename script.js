@@ -73,9 +73,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Scroll reveal
   const revealTargets = document.querySelectorAll(
-    ".section-header, .feature-card, .project-card, .tl-item, .about-text, .about-facts, .stack-group, .service-card, .contact-info, .contact-form, .hero-text, .hero-image"
+    ".section-header, .feature-card, .project-card, .tl-item, .about-text, .about-facts, .stack-group, .service-card, .contact-info, .contact-form"
   );
   revealTargets.forEach((el) => el.classList.add("reveal"));
+  // stagger index so grouped items reveal in a wave
+  document
+    .querySelectorAll(".projects-grid .project-card")
+    .forEach((el, i) => el.style.setProperty("--i", i % 4));
+  document
+    .querySelectorAll(".services-grid .service-card, .stack-grid .stack-group")
+    .forEach((el, i) => el.style.setProperty("--i", i % 4));
 
   const revealObserver = new IntersectionObserver(
     (entries, obs) => {
