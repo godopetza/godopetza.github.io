@@ -290,7 +290,9 @@ section { position: relative; padding: 112px 0; scroll-margin-top: 72px; }
 
 /* white-background app icons (OtApp fleet) sit on a soft panel */
 .bento--app .bento__img { background: var(--white); padding: 8px; }
-.bento--app.bento--tall .bento__img { padding: 12px; }
+.bento--app.bento--tall .bento__img, .bento--app.bento--xl .bento__img { padding: 14px; }
+/* lead tiles float to the front of the grid */
+.bento--lead { order: -1; }
 
 /* Experience timeline */
 .experience-section { background: linear-gradient(var(--midnight), #14182f); }
