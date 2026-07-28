@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Scroll reveal
   const revealTargets = document.querySelectorAll(
-    ".section-header, .feature-card, .project-card, .about-text, .about-facts, .stack-group, .service-card, .contact-info, .contact-form, .hero-text, .hero-image"
+    ".section-header, .feature-card, .project-card, .tl-item, .about-text, .about-facts, .stack-group, .service-card, .contact-info, .contact-form, .hero-text, .hero-image"
   );
   revealTargets.forEach((el) => el.classList.add("reveal"));
 

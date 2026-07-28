@@ -31,7 +31,6 @@
                 <ul id="primary-navigation">
                     <li><a href="#home" class="nav-link active">Home</a></li>
                     <li><a href="#work" class="nav-link">Work</a></li>
-                    <li><a href="#otapp" class="nav-link">OtApp</a></li>
                     <li><a href="#experience" class="nav-link">Experience</a></li>
                     <li><a href="#about" class="nav-link">About</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
@@ -78,12 +77,13 @@
         <section id="work" class="projects-section">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-eyebrow mono">01 — My products</span>
-                    <h2 class="section-title">Products I've shipped</h2>
+                    <span class="section-eyebrow mono">01 — Selected work</span>
+                    <h2 class="section-title">Products &amp; apps I've built</h2>
                 </div>
 
                 <div class="projects-filter mono">
                     <button class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
+                    <button class="filter-btn" data-filter="otapp" aria-pressed="false">Otapp</button>
                     <button class="filter-btn" data-filter="mobile" aria-pressed="false">Mobile</button>
                     <button class="filter-btn" data-filter="web" aria-pressed="false">Web</button>
                     <button class="filter-btn" data-filter="saas" aria-pressed="false">SaaS</button>
@@ -249,28 +249,12 @@
                             </div>
                         </div>
                     </article>
-                </div>
-            </div>
-        </section>
-
-        <section id="otapp" class="projects-section otapp-section">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-eyebrow mono">02 — At OtApp</span>
-                    <h2 class="section-title">Apps I build at OtApp</h2>
-                </div>
-                <p class="section-lead">As Lead Mobile Applications Developer at
-                    <a href="https://play.google.com/store/apps/developer?id=OTAPP" target="_blank"
-                        rel="noopener">OtApp</a> — one of Tanzania's top lifestyle apps — I build the flagship
-                    super-app and white-label booking apps shipped for 15+ bus operators across the country.</p>
-
-                <div class="bento-grid otapp-grid">
-                    <article class="bento bento--xl">
+                    <article class="project-card bento bento--app bento--tall" data-category="otapp mobile web">
                         <img class="bento__img" src="./assets/png/otapp/otapp.png" alt="Otapp" loading="lazy"
                             decoding="async">
                         <span class="bento__flag mono">Top lifestyle app · Tanzania</span>
                         <div class="bento__content">
-                            <span class="bento__cat mono">Lifestyle super-app</span>
+                            <span class="bento__cat mono">Otapp · Lifestyle super-app</span>
                             <h3 class="bento__title">Otapp</h3>
                             <p class="bento__desc">Book bus, events, cinema, and flights in one place — with M-Pesa,
                                 Airtel, Tigo, Halopesa and card payments, real-time updates, and 24/7 support.</p>
@@ -283,26 +267,26 @@
                         </div>
                     </article>
 
-                    <article class="bento bento--tall">
+                    <article class="project-card bento bento--app bento--md" data-category="otapp mobile">
                         <img class="bento__img" src="./assets/png/otapp/obus.png" alt="OBus" loading="lazy"
                             decoding="async">
                         <div class="bento__content">
-                            <span class="bento__cat mono">Bus booking · Agents</span>
+                            <span class="bento__cat mono">Otapp · Bus booking</span>
                             <h3 class="bento__title">OBus</h3>
-                            <p class="bento__desc">Agent bus ticketing — normal tickets, short-route, and special
-                                hire.</p>
                             <div class="bento__links mono">
                                 <a href="https://play.google.com/store/apps/details?id=tz.co.otapp.obus"
                                     target="_blank" rel="noopener"><i class="fab fa-google-play"></i> Play</a>
+                                <a href="https://apps.apple.com/tz/app/id6746260564" target="_blank"
+                                    rel="noopener"><i class="fab fa-apple"></i> iOS</a>
                             </div>
                         </div>
                     </article>
 
-                    <article class="bento bento--md">
+                    <article class="project-card bento bento--app bento--md" data-category="otapp mobile">
                         <img class="bento__img" src="./assets/png/otapp/ocinema.png" alt="OCinema" loading="lazy"
                             decoding="async">
                         <div class="bento__content">
-                            <span class="bento__cat mono">Cinema box office</span>
+                            <span class="bento__cat mono">Otapp · Cinema box office</span>
                             <h3 class="bento__title">OCinema</h3>
                             <div class="bento__links mono">
                                 <a href="https://play.google.com/store/apps/details?id=tz.co.otapp.movie"
@@ -311,106 +295,122 @@
                         </div>
                     </article>
 
-                    <article class="bento bento--md">
+                    <article class="project-card bento bento--app bento--md" data-category="otapp mobile">
                         <img class="bento__img" src="./assets/png/otapp/esther.png" alt="Esther Luxury Coach"
                             loading="lazy" decoding="async">
                         <div class="bento__content">
-                            <span class="bento__cat mono">White-label · Bus</span>
+                            <span class="bento__cat mono">Otapp · White-label bus</span>
                             <h3 class="bento__title">Esther Luxury Coach</h3>
                             <div class="bento__links mono">
                                 <a href="https://play.google.com/store/apps/details?id=tz.co.otapp.estherluxurycoach"
                                     target="_blank" rel="noopener"><i class="fab fa-google-play"></i> Play</a>
+                                <a href="https://apps.apple.com/tz/app/id6742498676" target="_blank"
+                                    rel="noopener"><i class="fab fa-apple"></i> iOS</a>
                             </div>
                         </div>
                     </article>
 
-                    <article class="bento bento--md">
+                    <article class="project-card bento bento--app bento--md" data-category="otapp mobile">
                         <img class="bento__img" src="./assets/png/otapp/bone.png" alt="B One Coach" loading="lazy"
                             decoding="async">
                         <div class="bento__content">
-                            <span class="bento__cat mono">White-label · Bus</span>
+                            <span class="bento__cat mono">Otapp · White-label bus</span>
                             <h3 class="bento__title">B One Coach</h3>
                             <div class="bento__links mono">
                                 <a href="https://play.google.com/store/apps/details?id=tz.co.otapp.bonecoach"
                                     target="_blank" rel="noopener"><i class="fab fa-google-play"></i> Play</a>
+                                <a href="https://apps.apple.com/tz/app/id6758100588" target="_blank"
+                                    rel="noopener"><i class="fab fa-apple"></i> iOS</a>
                             </div>
                         </div>
                     </article>
 
-                    <article class="bento bento--md">
+                    <article class="project-card bento bento--app bento--md" data-category="otapp mobile">
                         <img class="bento__img" src="./assets/png/otapp/safirimixx.png" alt="Safiri Na Mixx"
                             loading="lazy" decoding="async">
                         <div class="bento__content">
-                            <span class="bento__cat mono">Yas (Tigo) agents · Bus</span>
+                            <span class="bento__cat mono">Otapp · Yas (Tigo) agents</span>
                             <h3 class="bento__title">Safiri Na Mixx</h3>
                             <div class="bento__links mono">
                                 <a href="https://play.google.com/store/apps/details?id=tz.co.mixxobus" target="_blank"
                                     rel="noopener"><i class="fab fa-google-play"></i> Play</a>
+                                <a href="https://apps.apple.com/tz/app/id6755954330" target="_blank"
+                                    rel="noopener"><i class="fab fa-apple"></i> iOS</a>
                             </div>
                         </div>
                     </article>
 
-                    <article class="bento bento--md">
+                    <article class="project-card bento bento--app bento--md" data-category="otapp mobile">
                         <img class="bento__img" src="./assets/png/otapp/bmcoach.png" alt="BM Coach" loading="lazy"
                             decoding="async">
                         <div class="bento__content">
-                            <span class="bento__cat mono">White-label · Bus</span>
+                            <span class="bento__cat mono">Otapp · White-label bus</span>
                             <h3 class="bento__title">BM Coach</h3>
                             <div class="bento__links mono">
                                 <a href="https://play.google.com/store/apps/details?id=tz.co.otapp.bmcoach"
                                     target="_blank" rel="noopener"><i class="fab fa-google-play"></i> Play</a>
+                                <a href="https://apps.apple.com/tz/app/id6741425815" target="_blank"
+                                    rel="noopener"><i class="fab fa-apple"></i> iOS</a>
                             </div>
                         </div>
                     </article>
 
-                    <article class="bento bento--md">
+                    <article class="project-card bento bento--app bento--md" data-category="otapp mobile">
                         <img class="bento__img" src="./assets/png/otapp/allys.png" alt="Allys Star" loading="lazy"
                             decoding="async">
                         <div class="bento__content">
-                            <span class="bento__cat mono">White-label · Bus</span>
+                            <span class="bento__cat mono">Otapp · White-label bus</span>
                             <h3 class="bento__title">Allys Star</h3>
                             <div class="bento__links mono">
                                 <a href="https://play.google.com/store/apps/details?id=tz.co.otapp.allysstar"
                                     target="_blank" rel="noopener"><i class="fab fa-google-play"></i> Play</a>
+                                <a href="https://apps.apple.com/tz/app/id6741418711" target="_blank"
+                                    rel="noopener"><i class="fab fa-apple"></i> iOS</a>
                             </div>
                         </div>
                     </article>
 
-                    <article class="bento bento--md">
+                    <article class="project-card bento bento--app bento--md" data-category="otapp mobile">
                         <img class="bento__img" src="./assets/png/otapp/saratoga.png" alt="Saratoga Bus" loading="lazy"
                             decoding="async">
                         <div class="bento__content">
-                            <span class="bento__cat mono">White-label · Bus</span>
+                            <span class="bento__cat mono">Otapp · White-label bus</span>
                             <h3 class="bento__title">Saratoga Bus</h3>
                             <div class="bento__links mono">
                                 <a href="https://play.google.com/store/apps/details?id=tz.co.otapp.saratoga"
                                     target="_blank" rel="noopener"><i class="fab fa-google-play"></i> Play</a>
+                                <a href="https://apps.apple.com/tz/app/id6741893849" target="_blank"
+                                    rel="noopener"><i class="fab fa-apple"></i> iOS</a>
                             </div>
                         </div>
                     </article>
 
-                    <article class="bento bento--md">
+                    <article class="project-card bento bento--app bento--md" data-category="otapp mobile">
                         <img class="bento__img" src="./assets/png/otapp/achimwene.png" alt="Achimwene Safari"
                             loading="lazy" decoding="async">
                         <div class="bento__content">
-                            <span class="bento__cat mono">White-label · Bus</span>
+                            <span class="bento__cat mono">Otapp · White-label bus</span>
                             <h3 class="bento__title">Achimwene Safari</h3>
                             <div class="bento__links mono">
                                 <a href="https://play.google.com/store/apps/details?id=co.tz.otapp.achimwenesafari"
                                     target="_blank" rel="noopener"><i class="fab fa-google-play"></i> Play</a>
+                                <a href="https://apps.apple.com/tz/app/id6780798491" target="_blank"
+                                    rel="noopener"><i class="fab fa-apple"></i> iOS</a>
                             </div>
                         </div>
                     </article>
 
-                    <article class="bento bento--md">
+                    <article class="project-card bento bento--app bento--md" data-category="otapp mobile">
                         <img class="bento__img" src="./assets/png/otapp/bluestar.png" alt="Blue Star Luxury"
                             loading="lazy" decoding="async">
                         <div class="bento__content">
-                            <span class="bento__cat mono">White-label · Bus</span>
+                            <span class="bento__cat mono">Otapp · White-label bus</span>
                             <h3 class="bento__title">Blue Star Luxury</h3>
                             <div class="bento__links mono">
                                 <a href="https://play.google.com/store/apps/details?id=tz.co.otapp.bluestar"
                                     target="_blank" rel="noopener"><i class="fab fa-google-play"></i> Play</a>
+                                <a href="https://apps.apple.com/tz/app/id6780715002" target="_blank"
+                                    rel="noopener"><i class="fab fa-apple"></i> iOS</a>
                             </div>
                         </div>
                     </article>
@@ -421,7 +421,7 @@
         <section id="experience" class="experience-section">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-eyebrow mono">03 — Experience</span>
+                    <span class="section-eyebrow mono">02 — Experience</span>
                     <h2 class="section-title">Where I've worked</h2>
                 </div>
                 <ol class="timeline">
@@ -505,7 +505,7 @@
         <section id="about" class="about-section">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-eyebrow mono">04 — About</span>
+                    <span class="section-eyebrow mono">03 — About</span>
                     <h2 class="section-title">Engineer &amp; entrepreneur</h2>
                 </div>
                 <div class="about-content">
@@ -546,7 +546,7 @@
         <section id="skills" class="skills-section">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-eyebrow mono">05 — Stack</span>
+                    <span class="section-eyebrow mono">04 — Stack</span>
                     <h2 class="section-title">Tools I build with</h2>
                 </div>
                 <div class="stack-grid">
@@ -594,7 +594,7 @@
         <section id="services" class="services-section">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-eyebrow mono">06 — Services</span>
+                    <span class="section-eyebrow mono">05 — Services</span>
                     <h2 class="section-title">How I can help</h2>
                 </div>
                 <div class="services-grid">
@@ -627,7 +627,7 @@
         <section id="contact" class="contact-section">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-eyebrow mono">07 — Contact</span>
+                    <span class="section-eyebrow mono">06 — Contact</span>
                     <h2 class="section-title">Let's talk</h2>
                 </div>
                 <div class="contact-content">
