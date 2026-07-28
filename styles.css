@@ -293,6 +293,17 @@ section { position: relative; padding: 112px 0; scroll-margin-top: 72px; }
 .bento--app.bento--tall .bento__img, .bento--app.bento--xl .bento__img { padding: 14px; }
 /* lead tiles float to the front of the grid */
 .bento--lead { order: -1; }
+/* white-label bus fleet — alphabetical ordering */
+.bento--o1 { order: 1; }
+.bento--o2 { order: 2; }
+.bento--o3 { order: 3; }
+.bento--o4 { order: 4; }
+.bento--o5 { order: 5; }
+.bento--o6 { order: 6; }
+.bento--o7 { order: 7; }
+/* installs badge */
+.bento__dl { position: absolute; top: 13px; right: 13px; z-index: 3; display: inline-flex; align-items: center; gap: .4em; padding: 3px 9px; color: var(--periwinkle); background: rgba(9,11,26,.8); border: 1px solid var(--line-strong); border-radius: 999px; font-size: .56rem; font-weight: 700; letter-spacing: .03em; }
+.bento__dl i { font-size: .82em; opacity: .85; }
 
 /* Experience timeline */
 .experience-section { background: linear-gradient(var(--midnight), #14182f); }
