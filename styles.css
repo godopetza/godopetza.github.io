@@ -305,35 +305,56 @@ section { position: relative; padding: 112px 0; scroll-margin-top: 72px; }
 .bento__dl { position: absolute; top: 13px; right: 13px; z-index: 3; display: inline-flex; align-items: center; gap: .4em; padding: 3px 9px; color: var(--periwinkle); background: rgba(9,11,26,.8); border: 1px solid var(--line-strong); border-radius: 999px; font-size: .56rem; font-weight: 700; letter-spacing: .03em; }
 .bento__dl i { font-size: .82em; opacity: .85; }
 
-/* Experience timeline */
+/* Experience timeline — alternating cards, scroll-drawn line */
 .experience-section { background: linear-gradient(var(--midnight), #14182f); }
-.timeline { position: relative; max-width: 880px; margin: 0 0 0 7px; padding-left: 36px; border-left: 2px solid var(--line-strong); display: flex; flex-direction: column; gap: 36px; }
-.tl-item { position: relative; }
-.tl-dot { position: absolute; left: -45px; top: 5px; width: 14px; height: 14px; border-radius: 50%; background: var(--tangerine); box-shadow: 0 0 0 5px rgba(255,120,63,.16); }
-.tl-top { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 16px; }
-.tl-role { font-family: var(--display); font-size: 1.32rem; font-weight: 700; line-height: 1.15; letter-spacing: -.02em; }
-.tl-date { flex: none; color: var(--tangerine); font-size: .72rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; }
-.tl-company { margin: 5px 0 9px; color: var(--periwinkle); font-size: .78rem; letter-spacing: .03em; }
+.timeline { position: relative; max-width: 980px; margin: 0 auto; padding: 6px 0; }
+.timeline::before { content: ""; position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; background: var(--line-strong); transform: translateX(-50%); }
+.tl-progress { position: absolute; left: 50%; top: 0; width: 3px; height: 100%; transform: translateX(-50%) scaleY(var(--p, 0)); transform-origin: top center; background: linear-gradient(var(--tangerine), var(--periwinkle) 88%); border-radius: 3px; box-shadow: 0 0 16px rgba(255,120,63,.45); }
+.tl-list { position: relative; display: flex; flex-direction: column; gap: 14px; }
+.tl-item { position: relative; width: 50%; padding: 16px 50px; }
+.tl-item:nth-child(odd) { left: 0; text-align: right; }
+.tl-item:nth-child(even) { left: 50%; }
+/* node on the centre line */
+.tl-dot { position: absolute; top: 22px; z-index: 2; width: 16px; height: 16px; border-radius: 50%; background: var(--midnight); border: 3px solid var(--line-strong); transition: border-color .4s var(--ease), background .4s var(--ease), box-shadow .4s var(--ease), transform .4s var(--ease); }
+.tl-item:nth-child(odd) .tl-dot { right: -8px; }
+.tl-item:nth-child(even) .tl-dot { left: -8px; }
+.tl-item.lit .tl-dot { border-color: var(--tangerine); background: var(--tangerine); box-shadow: 0 0 0 6px rgba(255,120,63,.14); transform: scale(1.14); }
+/* fluid curved connector from card to the line */
+.tl-item::after { content: ""; position: absolute; top: 19px; width: 32px; height: 16px; }
+.tl-item:nth-child(odd)::after { right: 2px; border-bottom: 2px solid var(--line-strong); border-right: 2px solid var(--line-strong); border-radius: 0 0 16px 0; }
+.tl-item:nth-child(even)::after { left: 2px; border-bottom: 2px solid var(--line-strong); border-left: 2px solid var(--line-strong); border-radius: 0 0 0 16px; }
+.tl-top { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; }
+.tl-item:nth-child(odd) .tl-top { justify-content: flex-end; }
+.tl-role { font-family: var(--display); font-size: 1.24rem; font-weight: 700; line-height: 1.15; letter-spacing: -.02em; }
+.tl-date { flex: none; color: var(--tangerine); font-size: .7rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; }
+.tl-company { margin: 5px 0 9px; color: var(--periwinkle); font-size: .76rem; letter-spacing: .03em; }
 .tl-company span { color: var(--faint); }
 .tl-company a { color: var(--periwinkle); text-decoration: underline; text-underline-offset: 3px; }
 .tl-company a:hover { color: var(--white); }
-.tl-desc { max-width: 70ch; color: var(--muted); font-size: .94rem; }
+.tl-desc { color: var(--muted); font-size: .9rem; }
+.tl-item:nth-child(odd) .tl-desc { margin-left: auto; }
 .tl-desc a { color: var(--tangerine); }
 
-/* timeline scroll-reveal — slide in from the rail, dot pops, staggered */
-.tl-item.reveal { opacity: 0; transform: translateX(-26px); transition: opacity .6s var(--ease), transform .6s var(--ease); }
+/* reveal: cards slide in from their own side */
+.tl-item.reveal { opacity: 0; transition: opacity .6s var(--ease), transform .6s var(--ease); }
+.tl-item:nth-child(odd).reveal { transform: translateX(-32px); }
+.tl-item:nth-child(even).reveal { transform: translateX(32px); }
 .tl-item.reveal.in { opacity: 1; transform: none; }
-.tl-item.reveal:nth-child(2).in { transition-delay: .06s; }
-.tl-item.reveal:nth-child(3).in { transition-delay: .12s; }
-.tl-item.reveal:nth-child(4).in { transition-delay: .18s; }
-.tl-item.reveal:nth-child(5).in { transition-delay: .24s; }
-.tl-item.reveal:nth-child(6).in { transition-delay: .30s; }
-.tl-item.reveal:nth-child(7).in { transition-delay: .36s; }
-.tl-item .tl-dot { transform: scale(0); transition: transform .45s var(--ease); }
-.tl-item.reveal.in .tl-dot { transform: scale(1); transition-delay: .18s; }
+
+/* mobile: single rail on the left, all cards to the right */
+@media (max-width: 720px) {
+    .timeline::before, .tl-progress { left: 9px; }
+    .tl-list { gap: 8px; }
+    .tl-item, .tl-item:nth-child(odd), .tl-item:nth-child(even) { width: 100%; left: 0; text-align: left; padding: 12px 0 12px 42px; }
+    .tl-item:nth-child(odd) .tl-top, .tl-item:nth-child(even) .tl-top { justify-content: flex-start; }
+    .tl-item:nth-child(odd) .tl-dot, .tl-item:nth-child(even) .tl-dot { left: 2px; right: auto; }
+    .tl-item:nth-child(odd) .tl-desc { margin-left: 0; }
+    .tl-item::after, .tl-item:nth-child(odd)::after, .tl-item:nth-child(even)::after { left: 11px; right: auto; top: 27px; width: 24px; height: 0; border: none; border-bottom: 2px solid var(--line-strong); border-radius: 0; }
+    .tl-item:nth-child(odd).reveal, .tl-item:nth-child(even).reveal { transform: translateY(20px); }
+}
+
 @media (prefers-reduced-motion: reduce) {
     .tl-item.reveal { opacity: 1; transform: none; }
-    .tl-item .tl-dot { transform: scale(1); }
 }
 
 /* staggered card reveal — a wave across each row */

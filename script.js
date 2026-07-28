@@ -97,6 +97,34 @@ document.addEventListener("DOMContentLoaded", function () {
   );
   revealTargets.forEach((el) => revealObserver.observe(el));
 
+  // Experience timeline: draw the connecting line and light nodes as you scroll
+  const timeline = document.querySelector(".timeline");
+  if (timeline) {
+    const prog = timeline.querySelector(".tl-progress");
+    const tlItems = timeline.querySelectorAll(".tl-item");
+    let tlTick = false;
+    function drawTimeline() {
+      const r = timeline.getBoundingClientRect();
+      const anchor = window.innerHeight * 0.62;
+      const p = Math.max(0, Math.min(1, (anchor - r.top) / (r.height || 1)));
+      if (prog) prog.style.setProperty("--p", p.toFixed(3));
+      tlItems.forEach((it) => {
+        const ir = it.getBoundingClientRect();
+        it.classList.toggle("lit", ir.top + 22 <= anchor);
+      });
+      tlTick = false;
+    }
+    function onTlScroll() {
+      if (!tlTick) {
+        requestAnimationFrame(drawTimeline);
+        tlTick = true;
+      }
+    }
+    window.addEventListener("scroll", onTlScroll, { passive: true });
+    window.addEventListener("resize", onTlScroll, { passive: true });
+    drawTimeline();
+  }
+
   // Project filtering
   const filterBtns = document.querySelectorAll(".filter-btn");
   const projectCards = document.querySelectorAll(".projects-grid .project-card");
