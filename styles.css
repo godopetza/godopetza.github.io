@@ -254,18 +254,24 @@ section { position: relative; padding: 112px 0; scroll-margin-top: 72px; }
 .filter-btn:hover { color: var(--white); border-color: var(--periwinkle); }
 .filter-btn.active { color: var(--midnight); background: var(--periwinkle); border-color: var(--periwinkle); }
 /* projects — bento grid, full-bleed tiles */
-.bento-grid { display: grid; grid-template-columns: repeat(6, 1fr); grid-auto-rows: 256px; grid-auto-flow: dense; gap: 16px; }
+.bento-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); grid-auto-rows: 256px; grid-auto-flow: dense; gap: 16px; }
 .bento { position: relative; min-width: 0; display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: radial-gradient(120% 130% at 50% 8%, #1b1f3d, #0d1027 72%); transition: transform .3s var(--ease), border-color .3s; }
 .bento:hover { border-color: var(--line-strong); transform: translateY(-4px); }
-.bento__img { margin: auto; max-width: calc(100% - 36px); max-height: 50%; width: auto; height: auto; object-fit: contain; border-radius: 16px; transition: transform .5s var(--ease); }
+/* the icon is the flexible element: it gives up height so the content block (and its
+   store pills) always fits inside the fixed-height tile instead of overflowing it.
+   min-height:0 is required — a replaced flex item defaults to min-height:auto (its
+   intrinsic height) and would refuse to shrink. */
+.bento__img { flex: 0 1 auto; min-height: 0; margin: auto; max-width: calc(100% - 36px); max-height: 50%; width: auto; height: auto; object-fit: contain; border-radius: 16px; transition: transform .5s var(--ease); }
 .bento--xl .bento__img, .bento--tall .bento__img { max-height: 58%; border-radius: 20px; }
 .bento--wide .bento__img { max-height: 46%; }
 .bento:hover .bento__img { transform: scale(1.04); }
 .bento__scrim { display: none; }
 .bento__flag { position: absolute; z-index: 3; top: 14px; left: 14px; padding: 4px 10px; color: var(--midnight); background: var(--tangerine); border-radius: 999px; font-size: .56rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
-.bento__content { min-width: 0; display: flex; flex-direction: column; gap: 6px; padding: 15px 20px; background: rgba(8,10,24,.55); border-top: 1px solid var(--line); }
-.bento__cat { color: var(--periwinkle); font-size: .62rem; letter-spacing: .05em; text-transform: uppercase; }
+.bento__content { flex: 0 0 auto; min-width: 0; display: flex; flex-direction: column; gap: 6px; padding: 15px 20px; background: rgba(8,10,24,.55); border-top: 1px solid var(--line); }
+.bento__cat { color: var(--periwinkle); font-size: .62rem; letter-spacing: .05em; text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .bento__title { font-family: var(--display); font-size: 1.32rem; font-weight: 700; line-height: 1.05; letter-spacing: -.03em; overflow-wrap: anywhere; }
+/* small tiles: cap the title at two lines so a long name can never push the pills out */
+.bento--md .bento__title { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .bento__desc { max-width: 48ch; color: var(--mist); font-size: .82rem; line-height: 1.5; }
 .bento__links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
 .bento__links a { display: inline-flex; align-items: center; justify-content: center; gap: .45em; min-width: 34px; min-height: 34px; padding: 5px 11px; color: var(--white); background: rgba(9,11,26,.5); border: 1px solid var(--line-strong); border-radius: 999px; font-size: .66rem; backdrop-filter: blur(6px); transition: color .2s, background .2s, border-color .2s; }
@@ -460,7 +466,7 @@ footer { position: relative; padding: 58px 0 28px; color: var(--midnight); backg
     .image-frame { width: 300px; }
     .hero-text { max-width: 720px; }
     .about-content, .contact-content { grid-template-columns: 1fr; }
-    .bento-grid { grid-template-columns: repeat(4, 1fr); grid-auto-rows: 200px; }
+    .bento-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: 200px; }
     .bento--xl { grid-column: span 4; grid-row: span 2; }
     .bento--tall { grid-column: span 2; grid-row: span 2; }
     .bento--wide { grid-column: span 2; }
@@ -479,11 +485,12 @@ footer { position: relative; padding: 58px 0 28px; color: var(--midnight); backg
     .hero-section { min-height: auto; padding-top: 140px; }
     .hero-title { font-size: clamp(4rem, 20vw, 7rem); }
     .scroll-indicator { display: none; }
-    .bento-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 188px; }
+    .bento-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 210px; }
     .bento--xl { grid-column: span 2; grid-row: span 2; }
     .bento--tall { grid-column: span 1; grid-row: span 2; }
     .bento--wide { grid-column: span 2; }
     .bento--md { grid-column: span 1; }
+    .bento--md .bento__title { font-size: 1.08rem; }
     .stack-grid, .services-grid { grid-template-columns: 1fr; }
     .about-text::before { display: none; }
 }
@@ -498,14 +505,19 @@ footer { position: relative; padding: 58px 0 28px; color: var(--midnight); backg
     .hero-cta { width: 100%; }
     .hero-cta a { flex: 1; }
     .hero-stats li { min-width: 50%; }
-    .bento-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 190px; gap: 12px; }
+    .bento-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 205px; gap: 12px; }
     .bento--xl { grid-column: span 2; grid-row: span 2; }
     .bento--tall { grid-column: span 1; grid-row: span 2; }
     .bento--wide { grid-column: span 2; grid-row: span 1; }
     .bento--md { grid-column: span 1; grid-row: span 1; }
-    .bento--md .bento__img { max-height: 46%; }
+    .bento--md .bento__img { max-height: 46%; max-width: calc(100% - 28px); }
     .bento__content { padding: 13px 14px; }
-    .bento__content { padding: 18px 20px; }
+    /* two-column tiles: scale the title with the tile so long names stay on two lines
+       and the Play / iOS pills always clear the bottom edge */
+    .bento--md .bento__cat { font-size: .56rem; }
+    .bento--md .bento__title { font-size: clamp(.92rem, 4.1vw, 1.06rem); }
+    .bento--md .bento__links { gap: 6px; margin-top: 2px; }
+    .bento--md .bento__links a { min-height: 30px; padding: 4px 9px; font-size: .62rem; }
     .about-facts div { align-items: flex-start; flex-direction: column; gap: 3px; }
     .about-facts dd { max-width: 100%; text-align: left; }
     .footer-content { align-items: flex-start; flex-direction: column; }
